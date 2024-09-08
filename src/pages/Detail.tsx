@@ -1,10 +1,10 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { api } from "../services/api";
 import { Character } from "../types/Character";
 import CloseIcon from '@mui/icons-material/Close';
 import nubeVoladoraImg from '../assets/nube-voladora.png'
-import { useFormatNumberWithDots } from "../helpers/userFormatNumberWithDots";
+import { formatNumberWithDots } from "../helpers/userFormatNumberWithDots";
 import { DeleteCharacter } from "../components/DeleteCharacter";
 
 export const Detail = () => {
@@ -25,9 +25,7 @@ export const Detail = () => {
     }
   }
 
-  useEffect(() => {
-    getIdCharacter()
-  }, [])
+  getIdCharacter()
 
   return (
     <div className="kamehouse_img h-[125vh] w-full flex justify-center items-center">
@@ -53,13 +51,13 @@ export const Detail = () => {
               <div className="">
                 <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-left">{character!.name}</h2>
                 <p className="font-black">kid: {" "}
-                  <span className=" text-[#3800db]">{useFormatNumberWithDots(character!.ki)}</span>
+                  <span className=" text-[#3800db]">{formatNumberWithDots(character!.ki)}</span>
                 </p>
                 <p className="font-black">Género: {" "}
                   <span className=" text-[#3800db]">{character!.gender}</span>
                 </p>
                 <p className="font-black">Máximo ki: {" "}
-                  <span className=" text-[#3800db]">{useFormatNumberWithDots(character!.maxKi)}</span>
+                  <span className=" text-[#3800db]">{formatNumberWithDots(character!.maxKi)}</span>
                 </p>
                 <p className="font-black">Raza: {" "}
                   <span className=" text-[#3800db]">{character!.race}</span>
